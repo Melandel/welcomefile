@@ -1,0 +1,172 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Welcome to the project!</title>
+		<script src='https://melandel.github.io/notes/notes.js'></script>
+		<script src='https://melandel.github.io/svgdiagram/svgdiagram.js'></script>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	</head>
+</html>
+<script>
+addNote(
+	"Guidelines & Resources",
+	marked(`
+### Knowledge sharing
+
+|Resource|Description|
+|:-------|:----------|
+|[WIKI](WIKI)|Documentation reference|
+
+
+### Ceremonies
+
+|Scope|Name|Schedule|Description|
+|:----|:---|:-------|:----------|
+|Life|[Lunch](https://noda.lecointreparis.com/Lp)|11h58. Precisely. Everyday.|**Oh yeah :3**|
+|Scrum Team|Daily|10h30-10h40 everyday (except the first day of each sprint)|Developers monitor the state of the current sprint|
+|Scrum Team|Sprint Retrospective|13h15-14h00 the first Mondays of each sprint|Developers review how the sprint unfolded|
+|Project Team|[Healthcheck](LINK)|Everyday|A pair of developers monitors the state of our continuous delivery in the last 24h|
+|Project Team|Backlog Item Grooming|15h30-17h every Tuesday and Thursday|The Product Owner reviews stories with the interested developers|
+|Project Team|Backlog Item Estimation|11h-12h every Tuesday|The developers estimate the effort required to implement some user stories|
+|Project Team|Sprint Review|16h-17h the last Friday of each sprint|Developers and Product Owners witness a demonstration of all the user stories that have been shipped|
+|Project Team|Sprint Retrospective|See organizers|Developers review the Actions they took during last retrospective and add some if needed|
+|Project Team|Actions Retrospective|10h-10h15 the first Mondays of each sprint|Developers monitor the Actions they took during last retrospective and update their status|
+
+### Source code Development
+|Name|Description|
+|:-------|:----------|
+|Development Process|[Reference](LINK)||
+|Code Review|Guidelines PCI DSS: LINK|
+|Naming Convention|[Guidelines](LINK)|
+|Local Testing|[Test Interface](LINK)|
+|Backlog|[Backlog](LINK) / [Epics](LINK) / [Bugs](LINK)|
+|Source code|[GitLab](LINK)|
+|Continuous Delivery|[TeamCity](LINK)|
+|Data Integration Packages|**Redis**: \\\\SRV-W-PACKAGES\\release\\smp-data-redis / **Purplebox**: \\\\packages\\release\\smp-data-purplebox|
+|SMP|[Swagger](LINK) / [SMP Portal](https://devsmpadmin.mykds.com/) / [Ocapi Verbs](http://ocadvt2012/Definitions/index.html)|
+
+
+### Delivery
+|Platform|Resources|
+|:-------|:----------|
+|Dev, Pre & Prod|[Traceviewer](LINK)|
+|Dev|[Test Interface](LINK) / [Kibana](LINK)|
+|Pre-Release|[Test Interface (Connection)](LINK) / [Test Interface (UI)](LINK) / [Kibana](LINK)|
+|Production|[Kibana](LINK)|
+
+### Life at KDS
+|Name|Description|
+|:-------|:----------|
+|[Days off](LINK)||
+|[Work From Home](LINK)|Motif d'absence|
+|Printer|Printer-Name and location|
+`)
+);
+
+addNote("Lunch",
+	// https://noda.nuc.disklosr.com/menu/noda/today
+	"<iframe width='100%' height='100%' src='https://noda.lecointreparis.com/Lp'></iframe>"
+);
+
+addNote(
+	"SMP Team members",
+	marked(`
+### 🥛 Scrum Team: Olay
+${[	{name: "FirstName LastName (Location)", aka:null, role: "The Role", likes: "(ToDo)", dislikes: "(ToDo)"},
+  ].map(x => `* **${x.name}**${x.aka ? ` (_aka_ ${x.aka})` : ""}\n\t* Likes: ${x.likes}\n\t* Dislikes: ${x.dislikes}`).join("\n")}
+  
+### ⚙ Scrum Team: SOC
+
+  
+### ✈ Scrum Team: Air
+
+`)
+);
+
+addNote(
+	"======> Getting Started",
+	marked(`
+### Download the source code needed to run the software
+* Browse to [the gitlab repository](LINK)
+* Click on ${"`this`"}
+* Click on ${"`that`"}
+* Clone the source code from that repository:
+	* Open a terminal
+	* Set the location to the folder containing the source code
+	* In a web browser, go to [the gitlab project](gitlab.kdsneo.kds.com)
+	* Click on ${"`Clone`"}
+	* Copy the link ${"`Clone with SSH`"} (requires help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent beforehand)
+	* Run the following command line : ${"`git clone {paste_whats_in_the_clipboard}`"}
+
+### Run the GUI and use the API
+* Do this
+* Do that
+
+### That's it!
+Call someone to see if you have everything working :)
+`));
+
+addNote(
+	"Overview: Business",
+	function (container) {
+		drawDiagram(container, "Business Overview", function(draw, options) {
+			options.shouldMatchParentSize = true;
+			let business = draw("Business overview");
+		});
+	}
+);
+
+addNote(
+	"Overview: Components",
+	function (container) {
+		drawDiagram(container, "Components Overview", function(draw, options) {
+			options.shouldMatchParentSize = true;
+			let components = draw("Components");
+		});
+	}
+);
+
+addNote(
+	"Overview: Data Flow",
+	function (container) {
+		drawDiagram(container, "Data Flow in the product", function(draw, options) {
+			options.shouldMatchParentSize = true;
+			let dataflow = draw("Data Fow");
+		});
+	}
+);
+
+addNote(
+	"Overview: Source code structure",
+	marked(`todo
+### [Repository: name-of-the-repo](LINK)
+`)
+);
+
+addNote(
+	"Overview: Tests",
+	marked(`todo
+### Unit tests
+### Component tests
+### Integration tests
+### System tests
+### End-to-end tests
+`)
+);
+
+addNote(
+	"Overview: Getting Started with Blablabla",
+	marked(`
+### What is Blablabla ?
+Blablabla description
+`)
+);
+addNote(
+	"Overview: Browsing through the logs",
+	function (container) {
+		drawDiagram(container, "Browsing through the logs", function(draw, options) {
+			let logs = draw("logs");
+		});
+	}
+);
+</script>
